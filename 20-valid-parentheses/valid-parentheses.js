@@ -6,7 +6,8 @@ var isValid = function (s) {
     const temp = [];
 
     for (let i = 0; i < s.length; i++) {
-        switch (s[i]) {
+        let char = s[i];
+        switch (char) {
             case "(":
                 temp.push(")");
                 break;
@@ -17,9 +18,9 @@ var isValid = function (s) {
                 temp.push("}");
                 break;
             default:
-                if(s[i] !== temp.pop()) return false;
+                if(char !== temp.pop()) return false;
         }
     }
 
-    return !temp.length;
+    return temp.length === 0;
 };
