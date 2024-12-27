@@ -7,13 +7,12 @@ var simplifyPath = function(path) {
     const stack = [];
 
     for(let i=0; i<splittedPath.length; i++) {
-        const currentElement = splittedPath[i];
-        if(!currentElement || currentElement === ".") {
+        if(!splittedPath[i] || splittedPath[i] === ".") {
             continue;
-        } else if(currentElement === "..") {
+        } else if(splittedPath[i] === "..") {
             stack.pop();
         } else {
-            stack.push(currentElement);
+            stack.push(splittedPath[i]);
         }
     }
 
