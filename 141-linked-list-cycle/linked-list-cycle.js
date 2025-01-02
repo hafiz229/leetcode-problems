@@ -11,15 +11,31 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    const set = new Set();
-    let current = head;
+    if(head === null) return false;
 
-    while(current != null) {
-        if(set.has(current)) return true;
+    let slow = head;
+    let fast = head.next;
 
-        set.add(current);
-        current = current.next;
+    while(slow != fast) {
+        if(fast === null || fast.next == null) return false;
+
+        slow = slow.next;
+        fast = fast.next.next;
     }
 
-    return false;
+    return true;
+
+    return true;
+    // Approach 01
+    // const set = new Set();
+    // let current = head;
+
+    // while(current != null) {
+    //     if(set.has(current)) return true;
+
+    //     set.add(current);
+    //     current = current.next;
+    // }
+
+    // return false;
 };
